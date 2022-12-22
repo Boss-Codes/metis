@@ -90,17 +90,17 @@ class Help extends Command_1.Command {
         const data = {
             embed: {
                 color: metis.colors.blue,
-                title: `${cmd.module}:${cmd.module}`,
+                title: `${cmd.module.toLowerCase()}:${cmd.name}`,
                 description: cmd.description,
                 fields: [
-                    { name: 'Usage:', value: `\`${cmd.usage}\`` },
+                    { name: 'Usage:', value: `\`${cmd.name} ${cmd.usage}\`` },
                 ]
             }
         };
         if (cmd.example) {
             data.embed.fields.push({
                 name: 'Examples:',
-                value: `\`${cmd.example}\``
+                value: `\`${cmd.name} ${cmd.example}\``
             });
         }
         if (cmd.aliases) {
