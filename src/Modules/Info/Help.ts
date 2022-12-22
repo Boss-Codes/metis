@@ -19,7 +19,7 @@ class Help extends Command {
     }
 
     async execute(metis: MetisInterface, ctx: ICommandContext): Promise<any> {
-
+        
         if (!ctx.args){return ctx.channel.createMessage('**Commands List**\n <https://github.com/Boss-Codes/metis-ts/wiki/Commands>\n\n**Bot Support Server**\nhttps://discord.gg/mePghx6dQy')}
         
         const error = {
@@ -45,7 +45,7 @@ class Help extends Command {
             }],
         }
         const input = ctx.args[0].toLowerCase()
-        const cmd: Command = metis.commands.get(input) || metis.commands.find(cmd => cmd.aliases && cmd.aliases.includes(input))
+        const cmd = metis.commands.get(input) || metis.commands.find(cmd => cmd.aliases && cmd.aliases.includes(input))
         if (!cmd) {return ctx.channel.createMessage({ 
             embeds: [{
                 color: metis.colors.red,
