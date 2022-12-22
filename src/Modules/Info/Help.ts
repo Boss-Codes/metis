@@ -7,8 +7,8 @@ class Help extends Command {
             name: 'help', 
             module: 'Info', 
             description: 'Lists the bot\'s commands or gives information on a specific command.', 
-            usage: '[command name]', 
-            example: 'serverinfo', 
+            usage: 'help [command name]', 
+            example: 'help serverinfo', 
             requiredGuilds: [], 
             requiredUsers: [], 
             deleteOnUsage: false, 
@@ -52,27 +52,15 @@ class Help extends Command {
                 title: `${cmd.module.toLowerCase()}:${cmd.name}`, 
                 description: cmd.description, 
                 fields: [
+                    { name: 'Usage', value: `\`${cmd.usage}\``}
                 ]
             }
-        }
-
-        if (!cmd.usage) { 
-            data.embed.fields.push({
-                name: 'Usage:', 
-                value: `\`${cmd.usage}\``
-            })
-        } 
-        if (cmd.usage) { 
-            data.embed.fields.push({
-                name: 'Usage:', 
-                value: `\`${cmd.name} ${cmd.usage}\``
-            })
         }
 
         if (cmd.example) { 
             data.embed.fields.push({
                 name: 'Example:', 
-                value: `\`${cmd.name} ${cmd.example}\``
+                value: `\`${cmd.example}\``
             })
         }
 
@@ -86,7 +74,7 @@ class Help extends Command {
         if (cmd.permLevel === 0) { 
             data.embed.fields.push({
                 name: 'Permissions:', 
-                vaule: 'User'
+                value: 'User'
             })
         }
 
