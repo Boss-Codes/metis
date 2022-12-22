@@ -1,7 +1,5 @@
 import {CommandInteraction, Interaction} from "eris";
 import {Metis as metis} from "../main"; 
-const config = require('../../config.json'); 
-import {inspect} from "util"; 
 
 metis.client.on('interactionCreate', async (interaction: Interaction, args: Array<string>) => { 
     if(interaction instanceof CommandInteraction){
