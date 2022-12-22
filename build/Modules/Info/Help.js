@@ -24,33 +24,27 @@ class Help extends Command_1.Command {
         if (!ctx.args) {
             return ctx.channel.createMessage('**Commands List**\n <https://github.com/Boss-Codes/metis-ts/wiki/Commands>\n\n**Bot Support Server**\nhttps://discord.gg/mePghx6dQy');
         }
-        const foundCommand = metis.commands.get(ctx.args[0].toLowerCase());
         const errorEmbed = {
             color: metis.colors.red,
             description: `${metis.emotes.error} I cannot find that command or module.`
         };
-        const menu = {
-            embeds: [errorEmbed],
+        const autoroles_notWorking_menu = {
+            embeds: [{
+                    color: metis.colors.default,
+                    description: "Insert troubleshooting steps here",
+                }],
+            flags: 64,
             components: [{
                     type: 1,
                     components: [{
                             type: 2,
-                            style: 5,
-                            label: 'Command List',
-                            custom_id: 'command_list',
-                            url: 'https://github.com/Boss-Codes/metis-ts/wiki/Commands'
-                        },
-                        {
-                            type: 2,
-                            style: 5,
-                            label: 'Support Server',
-                            custom_id: 'support_server',
-                            url: 'https://discord.gg/mePghx6dQy'
-                        }]
-                }
-            ]
+                            custom_id: "addSup",
+                            style: 4,
+                            label: "Additional Support",
+                        }],
+                }],
         };
-        ctx.channel.createMessage(menu);
+        ctx.channel.createMessage(autoroles_notWorking_menu);
     }
 }
 module.exports.cmd = Help;
