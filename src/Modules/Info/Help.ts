@@ -15,7 +15,6 @@ class Help extends Command {
             showOnHelp: true, 
             permLevel: CommandPermissions['user'], 
             enabled: true, 
-            aliases: []
         })
     }
 
@@ -45,8 +44,8 @@ class Help extends Command {
                 }],
             }],
         }
-        const cmd = metis.commands.get(ctx.args.join(' ')); 
-        const foundModule = metis.commands.filter(r => r.module === ctx.args.join(' '))
+        const input = ctx.args[0].toLowerCase()
+        const cmd: Command = metis.commands.get(input) || metis.commands.find(cmd => cmd.aliases && cmd.aliases.includes(input))
         if (!cmd) {return ctx.channel.createMessage({ 
             embeds: [{
                 color: metis.colors.red,
@@ -76,7 +75,7 @@ class Help extends Command {
         if (cmd.permLevel === 2){cmdPerm = 'Server Manager'}
         if (cmd.permLevel === 3){cmdPerm = 'Support Staff'}
         if (cmd.permLevel === 4){cmdPerm = 'Developer'}
-        
+
         const data = { 
             embed: { 
                 color: metis.colors.blue, 
@@ -84,11 +83,17 @@ class Help extends Command {
                 description: cmd.description, 
                 fields: [
                     { name: 'Usage:', value: `\`${cmd.usage}\``}, 
-                    { name: 'Examples:', value: `\`${cmd.example}\``}
                 ]
             }
         }
 
+        if (cmd.example) { 
+            data.embed.fields.push({
+                name: 'Examples:', 
+                value: `\`${cmd.example}\``}
+            )
+        }
+        
         if (cmd.aliases) { 
             data.embed.fields.push({
                 name: 'Aliases:', 

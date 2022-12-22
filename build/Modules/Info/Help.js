@@ -16,7 +16,6 @@ class Help extends Command_1.Command {
             showOnHelp: true,
             permLevel: types_1.CommandPermissions['user'],
             enabled: true,
-            aliases: []
         });
     }
     async execute(metis, ctx) {
@@ -45,8 +44,8 @@ class Help extends Command_1.Command {
                         }],
                 }],
         };
-        const cmd = metis.commands.get(ctx.args.join(' '));
-        const foundModule = metis.commands.filter(r => r.module === ctx.args.join(' '));
+        const input = ctx.args[0].toLowerCase();
+        const cmd = metis.commands.get(input) || metis.commands.find(cmd => cmd.aliases && cmd.aliases.includes(input));
         if (!cmd) {
             return ctx.channel.createMessage({
                 embeds: [{
@@ -95,10 +94,15 @@ class Help extends Command_1.Command {
                 description: cmd.description,
                 fields: [
                     { name: 'Usage:', value: `\`${cmd.usage}\`` },
-                    { name: 'Examples:', value: `\`${cmd.example}\`` }
                 ]
             }
         };
+        if (cmd.example) {
+            data.embed.fields.push({
+                name: 'Examples:',
+                value: `\`${cmd.example}\``
+            });
+        }
         if (cmd.aliases) {
             data.embed.fields.push({
                 name: 'Aliases:',
