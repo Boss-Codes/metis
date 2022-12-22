@@ -1,6 +1,6 @@
 import {Command} from "../../Core/Structures/Command"; 
-import { CommandPermissions, ICommandContext, MetisInterface } from "../../types";
-import { Interaction, CommandInteraction } from "eris";
+import {CommandPermissions, ICommandContext, MetisInterface} from "../../types";
+
 class Ping extends Command { 
     constructor(){
         super({
