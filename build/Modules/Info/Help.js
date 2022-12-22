@@ -19,7 +19,8 @@ class Help extends Command_1.Command {
         });
     }
     async execute(metis, ctx) {
-        if (!ctx.args) {
+        const input = ctx.args[0].toLowerCase();
+        if (!input) {
             return ctx.channel.createMessage('**Commands List**\n <https://github.com/Boss-Codes/metis-ts/wiki/Commands>\n\n**Bot Support Server**\nhttps://discord.gg/mePghx6dQy');
         }
         const error = {
@@ -44,7 +45,6 @@ class Help extends Command_1.Command {
                         }],
                 }],
         };
-        const input = ctx.args[0].toLowerCase();
         const cmd = metis.commands.get(input) || metis.commands.find(cmd => cmd.aliases && cmd.aliases.includes(input));
         if (!cmd) {
             return ctx.channel.createMessage({
