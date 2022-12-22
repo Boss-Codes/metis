@@ -16,7 +16,6 @@ class Update extends Command_1.Command {
             showOnHelp: false,
             deleteOnUsage: false,
             enabled: true,
-            aliases: ['build']
         });
     }
     async execute(metis, ctx) {
