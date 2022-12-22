@@ -77,6 +77,30 @@ class Help extends Command {
                 value: 'User'
             })
         }
+        if (cmd.permLevel === 1) { 
+            data.embed.fields.push({
+                name: 'Permissions:', 
+                value: 'Server Moderator'
+            })
+        }
+        if (cmd.permLevel === 2) { 
+            data.embed.fields.push({
+                name: 'Permissions:', 
+                value: 'Server Manager'
+            })
+        }
+        if (cmd.permLevel === 3) { 
+            data.embed.fields.push({
+                name: 'Permissions:', 
+                value: 'Support Staff'
+            })
+        }
+        if (cmd.permLevel === 4) { 
+            data.embed.fields.push({
+                name: 'Permissions:', 
+                value: 'Developer'
+            })
+        }
 
 
         if (cmd) { 
