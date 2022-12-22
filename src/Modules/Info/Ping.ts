@@ -7,6 +7,7 @@ class Ping extends Command {
             name: 'ping', 
             module: 'Info',
             usage: '',
+            example: '',
             description: 'Displays current bot latency.', 
             permLevel: CommandPermissions['user'], 
             requiredUsers: [], 

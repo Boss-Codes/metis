@@ -23,8 +23,8 @@ export class Command {
         this.name = cmd.name ?? "unknown"
         this.module = cmd.module ?? "Internal"
         this.description = cmd.description ?? "None" 
-        this.usage = cmd.name + " " + cmd.usage ?? cmd.name
-        this.example = cmd.name + " " + cmd.example ?? "None"
+        this.usage = cmd.name + "" + cmd.usage ?? cmd.name
+        this.example = cmd.name + "" + cmd.example ?? "None"
         this.permLevel = cmd.permLevel ?? CommandPermissions["user"]
         this.requiredUsers = cmd.requiredUsers ?? []
         this.requiredGuilds = cmd.requiredGuilds ?? []
