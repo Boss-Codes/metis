@@ -15,6 +15,7 @@ class Update extends Command {
             showOnHelp: false,
             deleteOnUsage: false,
             enabled: true,
+            aliases: ['build']
         })
     }
 
