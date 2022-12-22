@@ -78,7 +78,7 @@ class Help extends Command_1.Command {
                 title: `${cmd.module.toLowerCase()}:${cmd.name}`,
                 description: cmd.description,
                 fields: [
-                    { name: 'Usage', value: `\`${cmd.usage}\`` }
+                    { name: 'Usage:', value: `\`${cmd.usage}\`` }
                 ]
             }
         };
