@@ -31,7 +31,7 @@ export class Command {
         this.showOnHelp = cmd.showOnHelp ?? true 
         this.deleteOnUsage = cmd.deleteOnUsage ?? false 
         this.enabled = cmd.enabled ?? true 
-        this.aliases = cmd.aliases ?? []
+        this.aliases = cmd.aliases
     }
 
     public client: MetisClient = metis.client
