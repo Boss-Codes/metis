@@ -127,7 +127,6 @@ class Help extends Command {
 
         if (cmd) { 
             ctx.channel.createMessage(data)
-            console.log(cmd.permLevel)
         }
         }
     }

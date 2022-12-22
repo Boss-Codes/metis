@@ -126,7 +126,6 @@ class Help extends Command_1.Command {
         }
         if (cmd) {
             ctx.channel.createMessage(data);
-            console.log(cmd.permLevel);
         }
     }
 }
