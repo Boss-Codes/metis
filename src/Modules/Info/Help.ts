@@ -81,7 +81,7 @@ class Help extends Command {
                 title: `${cmd.module.toLowerCase()}:${cmd.name}`, 
                 description: cmd.description, 
                 fields: [
-                    { name: 'Usage:', value: `\`${cmd.name} ${cmd.usage}\``}, 
+                    { name: 'Usage:', value: `\`${cmd.usage}\``}, 
                 ]
             }
         }
@@ -89,7 +89,7 @@ class Help extends Command {
         if (cmd.example) { 
             data.embed.fields.push({
                 name: 'Examples:', 
-                value: `\`${cmd.name} ${cmd.example}\``}
+                value: `\`${cmd.example}\``}
             )
         }
 
