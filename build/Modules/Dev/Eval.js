@@ -10,7 +10,7 @@ class Eval extends Command_1.Command {
             module: 'Dev',
             description: 'Evaluates code.',
             usage: 'eval <code>',
-            example: 'eval metis.guilds.size',
+            example: 'eval metis.client.guilds.size',
             permLevel: types_1.CommandPermissions['developer'],
             requiredGuilds: [],
             requiredUsers: [],
