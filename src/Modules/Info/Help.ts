@@ -46,7 +46,9 @@ class Help extends Command {
                 }],
             }],
         }
-        ctx.channel.createMessage(error)
+        const foundCommand = metis.commands.get(ctx.args.join(' ')); 
+        const foundModule = metis.commands.filter(r => r.module === ctx.args.join(' '))
+        if (!foundModule) {return ctx.channel.createMessage(error)}
 
     }
 }
