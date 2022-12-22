@@ -16,6 +16,7 @@ class Help extends Command_1.Command {
             showOnHelp: true,
             permLevel: types_1.CommandPermissions['user'],
             enabled: true,
+            aliases: ['command-info']
         });
     }
     async execute(metis, ctx) {

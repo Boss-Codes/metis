@@ -15,6 +15,7 @@ class Help extends Command {
             showOnHelp: true, 
             permLevel: CommandPermissions['user'], 
             enabled: true, 
+            aliases: ['command-info']
         })
     }
 
