@@ -67,14 +67,6 @@ class Help extends Command {
                 }],
             }],
         })}
-        // perm level better
-        let cmdPerm = ''
-        if (cmd.permLevel === 0){cmdPerm = 'User'}
-        if (cmd.permLevel === 1){cmdPerm = 'Moderator'}
-        if (cmd.permLevel === 2){cmdPerm = 'Server Manager'}
-        if (cmd.permLevel === 3){cmdPerm = 'Support Staff'}
-        if (cmd.permLevel === 4){cmdPerm = 'Developer'}
-
         const data = { 
             embed: { 
                 color: metis.colors.blue, 
@@ -82,16 +74,11 @@ class Help extends Command {
                 description: cmd.description, 
                 fields: [
                     { name: 'Usage:', value: `\`${cmd.usage}\``}, 
+                    { name: 'Examples:', value: `\`${cmd.example}\``}
                 ]
             }
         }
 
-        if (cmd.example) { 
-            data.embed.fields.push({
-                name: 'Examples:', 
-                value: `\`${cmd.example}\``}
-            )
-        }
 
         if (cmd.aliases) { 
             data.embed.fields.push({
