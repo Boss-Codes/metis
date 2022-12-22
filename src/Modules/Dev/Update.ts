@@ -23,7 +23,7 @@ class Update extends Command {
     async execute(metis: MetisInterface, ctx: ICommandContext): Promise<any> {
         let msgArray: Array<string> = []
         let output: any 
-        exec("git pull && pm2 restart Metis", (error, out) => { 
+        exec("git pull", (error, out) => { 
             if(error){output = error}
             if(!error){output = out}
 

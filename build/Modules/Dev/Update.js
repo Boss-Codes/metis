@@ -23,7 +23,7 @@ class Update extends Command_1.Command {
     async execute(metis, ctx) {
         let msgArray = [];
         let output;
-        (0, child_process_1.exec)("git pull && pm2 restart Metis", (error, out) => {
+        (0, child_process_1.exec)("git pull", (error, out) => {
             if (error) {
                 output = error;
             }
