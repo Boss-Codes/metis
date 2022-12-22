@@ -108,14 +108,9 @@ class Help extends Command_1.Command {
                 value: cmd.aliases.map(a => `\`${a}\``).join(", ")
             });
         }
-        if (cmd.permLevel) {
-            data.embed.fields.push({
-                name: 'Permissions:',
-                value: cmdPerm
-            });
-        }
         if (cmd) {
             ctx.channel.createMessage(data);
+            console.log(cmd.permLevel);
         }
     }
 }
