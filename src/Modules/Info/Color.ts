@@ -7,6 +7,8 @@ class Color extends Command {
             name: 'color', 
             module: 'info',
             description: 'Displays a color.', 
+            usage: '<color>', 
+            example: '#bbaaee',
             permLevel: CommandPermissions['user'], 
             requiredUsers: [], 
             requiredGuilds: [], 
