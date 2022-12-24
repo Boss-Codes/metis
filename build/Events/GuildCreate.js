@@ -1,19 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const main_1 = require("../main");
-const mongoose_1 = __importDefault(require("mongoose"));
 const config = require('../../config.json');
 main_1.Metis.client.on('guildCreate', async (guild) => {
-    await main_1.Metis.models.guild.create({
-        _id: new mongoose_1.default.Types.ObjectId(),
-        guildId: guild.id,
-        guildName: guild.name,
-        owner: main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(guild.ownerID)) ?? 'Undefined',
-        ownerId: guild.ownerID
-    });
     if (main_1.Metis.client.user.id === '564472435336806450') {
         main_1.Metis.client.executeWebhook(config.guildWebID, config.guildWebhook, {
             embeds: [{

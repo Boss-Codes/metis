@@ -5,14 +5,6 @@ const config = require('../../config.json');
 
 metis.client.on('guildCreate', async (guild: Guild) => { 
 
-    await metis.models.guild.create({
-        _id: new mongoose.Types.ObjectId(),
-        guildId: guild.id, 
-        guildName: guild.name, 
-        owner: metis.util.getFullName(await metis.client.getRESTUser(guild.ownerID)) ?? 'Undefined', 
-        ownerId: guild.ownerID
-    })
-
     if (metis.client.user.id === '564472435336806450') { 
         metis.client.executeWebhook(config.guildWebID, config.guildWebhook, { 
             embeds: [{
