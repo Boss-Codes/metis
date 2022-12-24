@@ -48,8 +48,7 @@ export class Util {
 
         return `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
     }
-
-
+    
     getUserFlags(user: User): Array<string> {
         let result: Array<string> = []
         if(user.publicFlags){
