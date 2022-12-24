@@ -8,7 +8,7 @@ class ChannelInfo extends Command_1.Command {
             name: 'channel-info',
             module: 'info',
             description: 'Shows various information on a given channel.\nSupports `text` or `voice` channels.',
-            usage: '<channel name | id | mention>',
+            usage: '<name | id | mention>',
             example: '#bot_commands',
             requiredGuilds: [],
             permLevel: types_1.CommandPermissions['user'],

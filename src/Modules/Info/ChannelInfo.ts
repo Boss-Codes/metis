@@ -7,7 +7,7 @@ class ChannelInfo extends Command {
             name: 'channel-info', 
             module: 'info', 
             description: 'Shows various information on a given channel.\nSupports `text` or `voice` channels.', 
-            usage: '<channel name | id | mention>', 
+            usage: '<name | id | mention>', 
             example: '#bot_commands', 
             requiredGuilds: [], 
             permLevel: CommandPermissions['user'], 
@@ -27,10 +27,10 @@ class ChannelInfo extends Command {
         if (!channel) {channel = ctx.guild.channels.get(ctx.channel.id)} 
 
         let perms = channel.permissionOverwrites.filter(c => c.id != ctx.guild.id).map(c => c.id)
-        let r1 = []
-        perms.forEach(r => r1.push(ctx.guild.roles.get(r)))
-        const sortedRoles = r1.sort((a, b) => b.position - a.position)
-        const roleList = sortedRoles.map(r => r.mention).join(', ')
+        let r1 = [];
+        perms.forEach(r => r1.push(ctx.guild.roles.get(r)));
+        const sortedRoles = r1.sort((a, b) => b.position - a.position);
+        const roleList = sortedRoles.map(r => r.mention).join(', ');
 
         if (channel.type === ChannelTypes['guildText']) { 
             ctx.channel.createMessage({ 
