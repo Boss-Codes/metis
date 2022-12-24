@@ -28,7 +28,8 @@ class Help extends Command_1.Command {
                 author: { name: `${metis.client.user.username}'s Commands` },
                 fields: [
                     { name: 'Info', value: infoCmds.map(a => `\`${a.name}\``).join(", ") }
-                ]
+                ],
+                timestamp: new Date(),
             }
         };
         if (metis.developer.includes(ctx.user.id)) {
