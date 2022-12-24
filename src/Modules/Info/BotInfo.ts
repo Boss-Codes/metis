@@ -19,15 +19,11 @@ class BotInfo extends Command {
     }
 
     async execute(metis: MetisInterface, ctx: ICommandContext): Promise<any> {
-        let uptime = metis.util.formatTime(metis.client.uptime)
-
-        let build = 'Prod'
-        if (metis.client.user.id === config.metisDevClient) {build = 'Dev'}
 
         ctx.channel.createMessage({ 
             embed: { 
                 author: { name: metis.client.user.username, icon_url: metis.client.user.avatarURL }, 
-                footer: { text: `${metis.client.user.username} | ${build} | PPID: ${process.ppid} | Shard: ${ctx.guild.shard.id} | Uptime: ${uptime}`}, 
+                footer: { text: `${metis.client.user.username} | ${config.build} | PPID: ${process.ppid} | Shard: ${ctx.guild.shard.id} | Uptime: ${metis.util.formatTime(metis.client.uptime)}`}, 
                 color: metis.colors.default, 
                 fields: [
                     { name: 'Version', value: metis.version, inline: true }, 

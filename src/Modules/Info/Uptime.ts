@@ -19,15 +19,12 @@ class Uptime extends Command {
     }
 
     async execute(metis: MetisInterface, ctx: ICommandContext): Promise<any> {
-        let build = 'Prod'
-        if (metis.client.user.id === config.metisDevClient) {build = 'Dev'}
-
         ctx.channel.createMessage({
             embed: { 
                 color: metis.colors.default, 
                 title: 'Uptime', 
                 description: `${metis.util.formatTime(metis.client.uptime)}`,
-                footer: { text: `${metis.client.user.username} | ${build} | PPID: ${process.ppid} | Shard: ${ctx.guild.shard.id}` }
+                footer: { text: `${metis.client.user.username} | ${config.build} | PPID: ${process.ppid} | Shard: ${ctx.guild.shard.id}` }
             }
         })
     }
