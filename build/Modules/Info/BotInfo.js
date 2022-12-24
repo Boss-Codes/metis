@@ -11,7 +11,7 @@ class BotInfo extends Command_1.Command {
             requiredGuilds: [],
             requiredUsers: [],
             showOnHelp: true,
-            deleteOnUsage: true,
+            deleteOnUsage: false,
             enabled: true,
             aliases: ['botinfo', 'stats', 'bot-information', 'info']
         });
