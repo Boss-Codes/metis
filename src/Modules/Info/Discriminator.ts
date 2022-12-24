@@ -9,6 +9,7 @@ class Discriminator extends Command {
             description: 'Gets a list of users with a discriminator.', 
             usage: '[discriminator]', 
             example: '#1353', 
+            permLevel: CommandPermissions['user'],
             requiredGuilds: [], 
             requiredUsers: [], 
             deleteOnUsage: false, 

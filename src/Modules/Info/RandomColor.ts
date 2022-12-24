@@ -9,6 +9,7 @@ class RandomColor extends Command {
             module: 'info', 
             description: 'Displays a random color.', 
             requiredGuilds: [],
+            permLevel: CommandPermissions['user'], 
             requiredUsers: [], 
             showOnHelp: true, 
             deleteOnUsage: false, 

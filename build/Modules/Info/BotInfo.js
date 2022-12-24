@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../../Core/Structures/Command");
+const types_1 = require("../../types");
 const config = require('../../../config.json');
 class BotInfo extends Command_1.Command {
     constructor() {
@@ -9,6 +10,7 @@ class BotInfo extends Command_1.Command {
             module: 'info',
             description: 'Gives statistics and information on the bot.',
             requiredGuilds: [],
+            permLevel: types_1.CommandPermissions['user'],
             requiredUsers: [],
             showOnHelp: true,
             deleteOnUsage: false,

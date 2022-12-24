@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../../Core/Structures/Command");
+const types_1 = require("../../types");
 class RandomColor extends Command_1.Command {
     constructor() {
         super({
@@ -8,6 +9,7 @@ class RandomColor extends Command_1.Command {
             module: 'info',
             description: 'Displays a random color.',
             requiredGuilds: [],
+            permLevel: types_1.CommandPermissions['user'],
             requiredUsers: [],
             showOnHelp: true,
             deleteOnUsage: false,

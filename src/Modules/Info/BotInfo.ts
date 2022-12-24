@@ -9,6 +9,7 @@ class BotInfo extends Command {
             module: 'info', 
             description: 'Gives statistics and information on the bot.', 
             requiredGuilds: [], 
+            permLevel: CommandPermissions['user'], 
             requiredUsers: [], 
             showOnHelp: true, 
             deleteOnUsage: false, 

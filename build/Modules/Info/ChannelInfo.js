@@ -11,6 +11,7 @@ class ChannelInfo extends Command_1.Command {
             usage: '<channel name | id | mention>',
             example: '#bot_commands',
             requiredGuilds: [],
+            permLevel: types_1.CommandPermissions['user'],
             requiredUsers: [],
             showOnHelp: true,
             deleteOnUsage: false,

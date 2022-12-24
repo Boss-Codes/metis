@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../../Core/Structures/Command");
+const types_1 = require("../../types");
 const config = require('../../../config.json');
 class Uptime extends Command_1.Command {
     constructor() {
@@ -10,6 +11,7 @@ class Uptime extends Command_1.Command {
             description: 'Displays the bot\'s uptime.',
             requiredGuilds: [],
             requiredUsers: [],
+            permLevel: types_1.CommandPermissions['user'],
             showOnHelp: true,
             enabled: true,
             deleteOnUsage: false,

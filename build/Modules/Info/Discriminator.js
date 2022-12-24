@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../../Core/Structures/Command");
+const types_1 = require("../../types");
 class Discriminator extends Command_1.Command {
     constructor() {
         super({
@@ -9,6 +10,7 @@ class Discriminator extends Command_1.Command {
             description: 'Gets a list of users with a discriminator.',
             usage: '[discriminator]',
             example: '#1353',
+            permLevel: types_1.CommandPermissions['user'],
             requiredGuilds: [],
             requiredUsers: [],
             deleteOnUsage: false,

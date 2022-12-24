@@ -10,6 +10,7 @@ class Uptime extends Command {
             description: 'Displays the bot\'s uptime.', 
             requiredGuilds: [], 
             requiredUsers: [], 
+            permLevel: CommandPermissions['user'], 
             showOnHelp: true, 
             enabled: true, 
             deleteOnUsage: false, 
