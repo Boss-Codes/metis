@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../../Core/Structures/Command");
 const types_1 = require("../../types");
 const util_1 = require("util");
-const console_1 = require("console");
 class Eval extends Command_1.Command {
     constructor() {
         super({
@@ -35,8 +34,6 @@ class Eval extends Command_1.Command {
                     color: metis.colors.blue,
                     timestamp: new Date(),
                 }
-            });
-            if (console_1.error) {
             }).catch((err) => {
                 ctx.channel.createMessage({
                     embed: {
@@ -46,7 +43,7 @@ class Eval extends Command_1.Command {
                         timestamp: new Date(),
                     }
                 });
-            }
+            });
         }
     }
 }
