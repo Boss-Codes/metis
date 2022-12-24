@@ -12,6 +12,21 @@ metis.client.on('ready', async () => {
         type: 1, 
         defaultPermission: true
     })
+
+    metis.client.createGuildCommand('1043755488157913189', { 
+        name: 'bot-info', 
+        description: 'Gives information and statistics on the bot.', 
+        type: 1, 
+        defaultPermission: true
+    })
+    
+    // metis.client.createCommand({
+    //     name: 'bot-info', 
+    //     description: 'Gives information and statistics on the bot.', 
+    //     type: 1, 
+    //     defaultPermission: true
+    // })
+
     metis.logger.success('Metis', `${metis.client.shards.size} Shards Connected [ALL]`, 'Shard Manager')
 })
     
