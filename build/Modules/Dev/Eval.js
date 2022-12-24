@@ -37,9 +37,9 @@ class Eval extends Command_1.Command {
             }).catch((err) => {
                 ctx.channel.createMessage({
                     embed: {
-                        author: { name: 'Eval Results', icon_url: ctx.user.avatarURL },
-                        description: metis.util.formatCode(msg.toString()),
-                        color: metis.colors.blue,
+                        author: { name: 'Error', icon_url: ctx.user.avatarURL },
+                        description: metis.util.formatCode(err.toString()),
+                        color: metis.colors.red,
                         timestamp: new Date(),
                     }
                 });
