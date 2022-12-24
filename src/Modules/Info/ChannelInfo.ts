@@ -26,12 +26,6 @@ class ChannelInfo extends Command {
         }
         if (!channel) {channel = ctx.guild.channels.get(ctx.channel.id)} 
 
-        let perms = channel.permissionOverwrites.filter(c => c.id != ctx.guild.id).map(c => c.id)
-        let r1 = [];
-        perms.forEach(r => r1.push(ctx.guild.roles.get(r)));
-        const sortedRoles = r1.sort((a, b) => b.position - a.position);
-        const roleList = sortedRoles.map(r => r.mention).join(', ');
-
         if (channel.type === ChannelTypes['guildText']) { 
             ctx.channel.createMessage({ 
                 embed: { 
@@ -44,7 +38,6 @@ class ChannelInfo extends Command {
                         { name: 'Category', value: `${ctx.guild.channels.get(channel.parentID).name}`, inline: true }, 
                         { name: 'NSFW', value: channel.nsfw ? 'Yes' : 'No', inline: true}, 
                         { name: 'Channel Topic', value: channel.topic || 'None'}, 
-                        { name: `Roles (${perms.length})`, value: roleList ?? `${metis.emotes.error} An unexpected error has occured.`}
                     ],
                     footer: { text: `Created: ${metis.util.formatDate(channel.createdAt)} at ${new Date(channel.createdAt).toLocaleTimeString('en-us', {timeZone: 'America/New_York'})}`}
                 }
@@ -64,7 +57,6 @@ class ChannelInfo extends Command {
                         { name: 'NSFW', value: channel.nsfw ? 'Yes' : 'No', inline: true}, 
                         { name: 'Connected Members', value: `${channel.voiceMembers.size}`, inline: true}, 
                         { name: 'User Limit', value: `${channel.userLimit}`},
-                        { name: `Roles (${perms.length})`, value: roleList}
                     ],
                     footer: { text: `Created: ${metis.util.formatDate(channel.createdAt)} at ${new Date(channel.createdAt).toLocaleTimeString('en-us', {timeZone: 'America/New_York'})}`}
                 }
