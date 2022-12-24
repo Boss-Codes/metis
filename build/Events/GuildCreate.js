@@ -11,7 +11,7 @@ main_1.Metis.client.on('guildCreate', async (guild) => {
         _id: new mongoose_1.default.Types.ObjectId(),
         guildId: guild.id,
         guildName: guild.name,
-        owner: main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(guild.ownerID)),
+        owner: main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(guild.ownerID)) ?? 'Undefined',
         ownerId: guild.ownerID
     });
     if (main_1.Metis.client.user.id === '564472435336806450') {

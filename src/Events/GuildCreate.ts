@@ -9,7 +9,7 @@ metis.client.on('guildCreate', async (guild: Guild) => {
         _id: new mongoose.Types.ObjectId(),
         guildId: guild.id, 
         guildName: guild.name, 
-        owner: metis.util.getFullName(await metis.client.getRESTUser(guild.ownerID)), 
+        owner: metis.util.getFullName(await metis.client.getRESTUser(guild.ownerID)) ?? 'Undefined', 
         ownerId: guild.ownerID
     })
 
