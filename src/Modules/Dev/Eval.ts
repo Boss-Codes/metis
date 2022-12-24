@@ -1,6 +1,7 @@
 import {Command} from "../../Core/Structures/Command"; 
 import {ICommandContext, MetisInterface, CommandPermissions} from "../../types";
 import {inspect} from "util"; 
+import { error } from "console";
 
 class Eval extends Command { 
     constructor(){ 
@@ -36,16 +37,19 @@ class Eval extends Command {
                     color: metis.colors.blue,
                     timestamp: new Date(),
            }
-            }).catch((err) => { 
+            })
+            if (error) { 
                 ctx.channel.createMessage({
                     embed: { 
                         author: { name: 'Error', icon_url: ctx.user.avatarURL },
-                        description: metis.util.formatCode(err.toString()),
+                        description: metis.util.formatCode(error.toString()),
                         color: metis.colors.red,
                         timestamp: new Date(),
                     }
                 })
-            })
+                
+            }
+            
         }
         
      }
