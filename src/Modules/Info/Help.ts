@@ -80,7 +80,7 @@ class Help extends Command {
                 description: mCmds.map(c => `\`${cmd}\``).join('\n')
             }
         }
-        
+
         if (cmd.module === 'Dev' && !metis.developer.includes(ctx.user.id)) {return ctx.channel.createMessage({ 
             embeds: [{
                 color: metis.colors.red,
@@ -108,30 +108,7 @@ class Help extends Command {
             ctx.channel.createMessage(module)
         }
 
-        if (!moduleArray.includes(ctx.args[0].toLowerCase())) { 
-            return ctx.channel.createMessage({ 
-                embeds: [{
-                    color: metis.colors.red,
-                    description: `${metis.emotes.error} I could not find that command or module.`,
-                }],
-                flags: 64,
-                components: [{
-                    type: 1,
-                    components: [{
-                        type: 2,
-                        style: 5,
-                        label: "Command List",
-                        url: 'https://github.com/Boss-Codes/metis-ts/wiki/Commands' 
-                    }, 
-                    {
-                        type: 2, 
-                        style: 5, 
-                        label: 'Support Server', 
-                        url: 'https://discord.gg/mePghx6dQy'
-                    }],
-                }],
-            })
-        } 
+      
 
         const data = { 
             embed: { 
@@ -204,6 +181,34 @@ class Help extends Command {
         if (cmd) { 
             ctx.channel.createMessage(data)
         }
-        }
-    }
+
+        if (!moduleArray.includes(ctx.args[0].toLowerCase())) { 
+            return ctx.channel.createMessage({ 
+                embeds: [{
+                    color: metis.colors.red,
+                    description: `${metis.emotes.error} I could not find that command or module.`,
+                }],
+                flags: 64,
+                components: [{
+                    type: 1,
+                    components: [{
+                        type: 2,
+                        style: 5,
+                        label: "Command List",
+                        url: 'https://github.com/Boss-Codes/metis-ts/wiki/Commands' 
+                    }, 
+                    {
+                        type: 2, 
+                        style: 5, 
+                        label: 'Support Server', 
+                        url: 'https://discord.gg/mePghx6dQy'
+                    }],
+                }],
+            })
+        } 
+
+     }
+
+        
+}
 module.exports.cmd = Help;
