@@ -22,7 +22,8 @@ const ErisOptions: ClientOptions = {
     defaultImageSize: 2048, 
     defaultImageFormat: 'png', 
     autoreconnect: true, 
-    compress: true
+    compress: true, 
+    getAllUsers: true
 }
 
 class metis implements MetisInterface {

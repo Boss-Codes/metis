@@ -26,7 +26,8 @@ const ErisOptions = {
     defaultImageSize: 2048,
     defaultImageFormat: 'png',
     autoreconnect: true,
-    compress: true
+    compress: true,
+    getAllUsers: true
 };
 class metis {
     constructor(token, clientOptions) {
