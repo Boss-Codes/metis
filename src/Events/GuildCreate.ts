@@ -6,6 +6,9 @@ const config = require('../../config.json');
 metis.client.on('guildCreate', async (guild: Guild) => { 
 
     if (metis.client.user.id === '564472435336806450') { 
+        if (!config.whitelistedGuilds.includes(guild.id)) { 
+            return metis.client.leaveGuild(guild.id)
+        }
         metis.client.executeWebhook(config.guildWebID, config.guildWebhook, { 
             embeds: [{
                 author: { name: 'Added', icon_url: metis.client.user.avatarURL }, 
@@ -16,9 +19,6 @@ metis.client.on('guildCreate', async (guild: Guild) => {
             }]
         })
     } else { 
-        if (!config.whitelistedGuilds.includes(guild.id)) { 
-            return metis.client.leaveGuild(guild.id)
-        }
         metis.client.executeWebhook(config.guildWebAlphaID, config.guildWebAlpha, { 
             embeds: [{
                 author: { name: 'Added', icon_url: metis.client.user.avatarURL }, 

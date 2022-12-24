@@ -17,9 +17,6 @@ main_1.Metis.client.on('guildDelete', async (guild) => {
         });
     }
     else {
-        if (!config.whitelistedGuilds.includes(guild.id)) {
-            return main_1.Metis.client.leaveGuild(guild.id);
-        }
         main_1.Metis.client.executeWebhook(config.guildWebAlphaID, config.guildWebAlpha, {
             embeds: [{
                     author: { name: 'Removed', icon_url: main_1.Metis.client.user.avatarURL },
