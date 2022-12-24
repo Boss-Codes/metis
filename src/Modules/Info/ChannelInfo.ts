@@ -44,7 +44,7 @@ class ChannelInfo extends Command {
                         { name: 'Category', value: `${ctx.guild.channels.get(channel.parentID).name}`, inline: true }, 
                         { name: 'NSFW', value: channel.nsfw ? 'Yes' : 'No', inline: true}, 
                         { name: 'Channel Topic', value: channel.topic || 'None'}, 
-                        { name: `Roles (${perms.length})`, value: roleList}
+                        { name: `Roles (${perms.length})`, value: roleList ?? `${metis.emotes.error} An unexpected error has occured.`}
                     ],
                     footer: { text: `Created: ${metis.util.formatDate(channel.createdAt)} at ${new Date(channel.createdAt).toLocaleTimeString('en-us', {timeZone: 'America/New_York'})}`}
                 }
