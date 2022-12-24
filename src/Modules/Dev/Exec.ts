@@ -6,7 +6,7 @@ class Exec extends Command {
     constructor(){
         super({
             name: "exec",
-            module: 'Dev',
+            module: 'dev',
             description: "Executes a console command",
             usage: "exec [command]",
             example: "exec pm2 restart metis",

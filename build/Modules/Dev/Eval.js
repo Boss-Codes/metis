@@ -7,7 +7,7 @@ class Eval extends Command_1.Command {
     constructor() {
         super({
             name: 'eval',
-            module: 'Dev',
+            module: 'dev',
             description: 'Evaluates code.',
             usage: 'eval <code>',
             example: 'eval metis.client.guilds.size',

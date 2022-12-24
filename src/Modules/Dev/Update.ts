@@ -6,7 +6,7 @@ class Update extends Command {
     constructor(){
         super({
             name: "update",
-            module: 'Dev',
+            module: 'dev',
             description: "Updates to the latest commit.",
             usage: "update",
             permLevel: CommandPermissions["developer"],

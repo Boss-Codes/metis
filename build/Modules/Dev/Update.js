@@ -7,7 +7,7 @@ class Update extends Command_1.Command {
     constructor() {
         super({
             name: "update",
-            module: 'Dev',
+            module: 'dev',
             description: "Updates to the latest commit.",
             usage: "update",
             permLevel: types_1.CommandPermissions["developer"],

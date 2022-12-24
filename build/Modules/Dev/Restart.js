@@ -8,7 +8,7 @@ class Restart extends Command_1.Command {
     constructor() {
         super({
             name: 'restart',
-            module: 'Dev',
+            module: 'dev',
             description: 'Restarts the bot or a specified shard.',
             usage: 'restart [shard]',
             example: 'restart 0\nrestart all',

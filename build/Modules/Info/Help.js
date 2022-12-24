@@ -6,7 +6,7 @@ class Help extends Command_1.Command {
     constructor() {
         super({
             name: 'help',
-            module: 'Info',
+            module: 'info',
             description: 'Lists the bot\'s commands or gives information on a specific command.',
             usage: '[command name]',
             example: 'serverinfo',
@@ -24,7 +24,32 @@ class Help extends Command_1.Command {
             return ctx.channel.createMessage('**Commands List**\n <https://github.com/Boss-Codes/metis-ts/wiki/Commands>\n\n**Bot Support Server**\nhttps://discord.gg/mePghx6dQy');
         }
         const cmd = metis.commands.get(ctx.args[0]) || metis.commands.find(cmd => cmd.aliases && cmd.aliases.includes(ctx.args[0]));
-        const mCmds = metis.commands.filter(c => c.module === ctx.args[0]);
+        const moduleArray = ['info', 'dev'];
+        if (!moduleArray.includes(ctx.args[0].toLowerCase())) {
+            return ctx.channel.createMessage({
+                embeds: [{
+                        color: metis.colors.red,
+                        description: `${metis.emotes.error} I could not find that command or module.`,
+                    }],
+                flags: 64,
+                components: [{
+                        type: 1,
+                        components: [{
+                                type: 2,
+                                style: 5,
+                                label: "Command List",
+                                url: 'https://github.com/Boss-Codes/metis-ts/wiki/Commands'
+                            },
+                            {
+                                type: 2,
+                                style: 5,
+                                label: 'Support Server',
+                                url: 'https://discord.gg/mePghx6dQy'
+                            }],
+                    }],
+            });
+        }
+        const mCmds = metis.commands.filter(c => c.module === ctx.args[0].toLowerCase());
         if (!cmd) {
             return ctx.channel.createMessage({
                 embeds: [{
@@ -50,30 +75,6 @@ class Help extends Command_1.Command {
             });
         }
         if (ctx.args[0] === 'Dev' && !metis.developer.includes(ctx.user.id) || ctx.args[0] === 'dev' && !metis.developer.includes(ctx.user.id)) {
-            return ctx.channel.createMessage({
-                embeds: [{
-                        color: metis.colors.red,
-                        description: `${metis.emotes.error} I could not find that command or module.`,
-                    }],
-                flags: 64,
-                components: [{
-                        type: 1,
-                        components: [{
-                                type: 2,
-                                style: 5,
-                                label: "Command List",
-                                url: 'https://github.com/Boss-Codes/metis-ts/wiki/Commands'
-                            },
-                            {
-                                type: 2,
-                                style: 5,
-                                label: 'Support Server',
-                                url: 'https://discord.gg/mePghx6dQy'
-                            }],
-                    }]
-            });
-        }
-        if (!mCmds) {
             return ctx.channel.createMessage({
                 embeds: [{
                         color: metis.colors.red,
@@ -189,7 +190,7 @@ class Help extends Command_1.Command {
                 value: 'Developer'
             });
         }
-        if (mCmds) {
+        if (moduleArray.includes(ctx.args[0].toLowerCase())) {
             ctx.channel.createMessage(module);
         }
         if (cmd) {

@@ -5,8 +5,7 @@ class Ping extends Command {
     constructor(){
         super({
             name: 'ping', 
-            module: 'Info',
-            usage: 'ping',
+            module: 'info',
             description: 'Displays current bot latency.', 
             permLevel: CommandPermissions['user'], 
             requiredUsers: [], 
