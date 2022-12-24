@@ -9,7 +9,6 @@ class Update extends Command_1.Command {
             name: "update",
             module: 'dev',
             description: "Updates to the latest commit.",
-            usage: "update",
             permLevel: types_1.CommandPermissions["developer"],
             requiredUsers: [],
             requiredGuilds: [],
