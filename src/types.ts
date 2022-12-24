@@ -1,4 +1,4 @@
-import {Client, Collection, Guild, Message, GuildChannel, Embed, Member, User, Role, GuildTextableChannel, VoiceChannel, CategoryChannel, ClientOptions, TextChannel} from "eris";
+import {Collection, Guild, Message, Member, User, TextChannel} from "eris";
 import {Command} from "./Core/Structures/Command";
 import {Logger} from "./Core/Structures/Logger"
 import {MetisClient} from "./Core/Structures/Client"; 
@@ -6,7 +6,7 @@ import {Resolver} from "./Core/Structures/Resolver"
 import {Util} from "./Core/Structures/Util"
 import {MongoGuild, MongoGuildModel} from "./Core/Models/MongoGuild";
 import {MongoUser, MongoUserModel} from "./Core/Models/MongoUser";
-import {MongoGlobal, MongoGlobalModel} from "./Core/Models/MongoGlobal"
+import {MongoGlobalModel} from "./Core/Models/MongoGlobal"
 
 export interface ICommandContext{
     msg: Message;
