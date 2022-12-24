@@ -38,7 +38,7 @@ class Util {
         return msgArray;
     }
     formatTime(time) {
-        const difference = Math.abs(Date.now() - time) / 1000;
+        const difference = Math.abs(time) / 1000;
         const days = Math.round(Math.floor(difference / 86400));
         const hours = Math.round(Math.floor(difference / 3600) % 24);
         const minutes = Math.round(Math.floor(difference / 60) % 60);

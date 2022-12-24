@@ -40,7 +40,7 @@ export class Util {
     }
 
     formatTime(time: number): string {
-        const difference = Math.abs(Date.now() - time) / 1000
+        const difference = Math.abs(time) / 1000
         const days = Math.round(Math.floor(difference / 86400))
         const hours = Math.round(Math.floor(difference / 3600) % 24)
         const minutes = Math.round(Math.floor(difference / 60) % 60)
@@ -48,6 +48,7 @@ export class Util {
 
         return `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
     }
+
 
     getUserFlags(user: User): Array<string> {
         let result: Array<string> = []
