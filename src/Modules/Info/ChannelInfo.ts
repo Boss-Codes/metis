@@ -15,7 +15,7 @@ class ChannelInfo extends Command {
             showOnHelp: true, 
             deleteOnUsage: false, 
             enabled: true, 
-            aliases: ['channel', 'channel-information']
+            aliases: ['channel', 'channel-information', 'channelinfo']
         })
     }
 

@@ -16,7 +16,7 @@ class ChannelInfo extends Command_1.Command {
             showOnHelp: true,
             deleteOnUsage: false,
             enabled: true,
-            aliases: ['channel', 'channel-information']
+            aliases: ['channel', 'channel-information', 'channelinfo']
         });
     }
     async execute(metis, ctx) {
