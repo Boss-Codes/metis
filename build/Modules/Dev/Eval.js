@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Command_1 = require("../../Core/Structures/Command");
 const types_1 = require("../../types");
 const util_1 = require("util");
-
 class Eval extends Command_1.Command {
     constructor() {
         super({
@@ -35,17 +34,16 @@ class Eval extends Command_1.Command {
                     color: metis.colors.blue,
                     timestamp: new Date(),
                 }
-            });
-            if (console_1.error) {
+            }).catch((err) => {
                 ctx.channel.createMessage({
                     embed: {
                         author: { name: 'Error', icon_url: ctx.user.avatarURL },
-                        description: metis.util.formatCode(console_1.error.toString()),
+                        description: metis.util.formatCode(err.toString()),
                         color: metis.colors.red,
                         timestamp: new Date(),
                     }
                 });
-            }
+            });
         }
     }
 }
