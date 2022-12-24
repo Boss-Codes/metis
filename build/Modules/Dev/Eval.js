@@ -43,7 +43,7 @@ class Eval extends Command_1.Command {
                         color: metis.colors.red,
                         timestamp: new Date(),
                     }
-                });
+                })
             }
         }
     }
