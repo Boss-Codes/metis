@@ -23,7 +23,7 @@ metis.client.on('messageCreate', async (msg: Message) => {
                 guildId: msg.channel.guild.id, 
                 guildName: msg.channel.guild.name, 
                 ownerId: msg.channel.guild.ownerID, 
-                owner: metis.util.getFullName(await metis.client.getRESTUser(msg.channel.guild.ownerID))
+                owner: metis.util.getFullName(await metis.client.getRESTUser(msg.channel.guild.ownerID)) ?? "Unknown"
             })
             metis.client.executeWebhook(config.devWebID, config.devWebhook, { 
                 embed: { 
@@ -32,7 +32,6 @@ metis.client.on('messageCreate', async (msg: Message) => {
                     description: `**Guild:** ${msg.channel.guild.name} (\`${msg.channel.guild.id}\`)\n**Owner:** ${metis.util.getFullName(await metis.client.getRESTUser(msg.channel.guild.ownerID))}`,
                     timestamp: new Date()                }
             })
-            metis.logger.info("MongoDB", `Initialized Guild Model with ID: ${msg.member.guild.id}`)
         }
 
         guildDatabase = await metis.models.guild.findOne({guildId: msg.member.guild.id})
@@ -63,7 +62,6 @@ metis.client.on('messageCreate', async (msg: Message) => {
                     timestamp: new Date()               
                  }
             })
-            metis.logger.info('Metis', `Initialized User Model with ID: ${msg.author.id}`)
         }
         
         userDatabase = await metis.models.user.findOne({userID: msg.author.id})

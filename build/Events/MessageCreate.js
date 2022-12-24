@@ -22,7 +22,7 @@ main_1.Metis.client.on('messageCreate', async (msg) => {
                 guildId: msg.channel.guild.id,
                 guildName: msg.channel.guild.name,
                 ownerId: msg.channel.guild.ownerID,
-                owner: main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(msg.channel.guild.ownerID))
+                owner: main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(msg.channel.guild.ownerID)) ?? "Unknown"
             });
             main_1.Metis.client.executeWebhook(config.devWebID, config.devWebhook, {
                 embed: {
@@ -32,7 +32,6 @@ main_1.Metis.client.on('messageCreate', async (msg) => {
                     timestamp: new Date()
                 }
             });
-            main_1.Metis.logger.info("MongoDB", `Initialized Guild Model with ID: ${msg.member.guild.id}`);
         }
         guildDatabase = await main_1.Metis.models.guild.findOne({ guildId: msg.member.guild.id });
         let prefix = guildDatabase.prefix;
@@ -63,7 +62,6 @@ main_1.Metis.client.on('messageCreate', async (msg) => {
                     timestamp: new Date()
                 }
             });
-            main_1.Metis.logger.info('Metis', `Initialized User Model with ID: ${msg.author.id}`);
         }
         userDatabase = await main_1.Metis.models.user.findOne({ userID: msg.author.id });
         const Command = main_1.Metis.commands.get(commandName) ||
