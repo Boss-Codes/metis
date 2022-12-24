@@ -9,6 +9,10 @@ export class Util {
     formatCode(message: string): string {
         return `\`\`\`js\n${message}\n\`\`\``
     }
+    
+    formatDate(date) { 
+        return new Intl.DateTimeFormat('en-us').format(date)
+    }
 
     splitMessage(message: string, length: number): Array<string> {
         let msgArray: Array<string> = []

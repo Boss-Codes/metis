@@ -8,7 +8,7 @@ main_1.Metis.client.on('guildCreate', async (guild) => {
             embeds: [{
                     author: { name: 'Added', icon_url: main_1.Metis.client.user.avatarURL },
                     color: main_1.Metis.colors.green,
-                    description: `**ID:** \`${guild.id}\`\n**Name:** \`${guild.name}\`\n**Members:** \`${guild.members.size}\`\n**Owner:** \`${main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(guild.ownerID))}\`\n**Created At**: \`${guild.createdAt}\``,
+                    description: `**ID:** \`${guild.id}\`\n**Name:** \`${guild.name}\`\n**Members:** \`${guild.members.size}\`\n**Owner:** \`${main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(guild.ownerID))}\`\n**Created At**: \`${main_1.Metis.util.formatDate(guild.createdAt)}\``,
                     timestamp: new Date,
                     footer: { text: `Total Guilds: ${main_1.Metis.client.guilds.size}` }
                 }]
@@ -19,7 +19,7 @@ main_1.Metis.client.on('guildCreate', async (guild) => {
             embeds: [{
                     author: { name: 'Added', icon_url: main_1.Metis.client.user.avatarURL },
                     color: main_1.Metis.colors.green,
-                    description: `**ID:** \`${guild.id}\`\n**Name:** \`${guild.name}\`\n**Members:** \`${guild.members.size}\`\n**Owner:** \`${main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(guild.ownerID))}\`\n**Created At**: \`${guild.createdAt}\``,
+                    description: `**ID:** \`${guild.id}\`\n**Name:** \`${guild.name}\`\n**Members:** \`${guild.members.size}\`\n**Owner:** \`${main_1.Metis.util.getFullName(await main_1.Metis.client.getRESTUser(guild.ownerID))}\`\n**Created At**: \`${main_1.Metis.util.formatDate(guild.createdAt)}\``,
                     timestamp: new Date,
                     footer: { text: `Total Guilds: ${main_1.Metis.client.guilds.size}` }
                 }]

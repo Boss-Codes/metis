@@ -8,6 +8,9 @@ class Util {
     formatCode(message) {
         return `\`\`\`js\n${message}\n\`\`\``;
     }
+    formatDate(date) {
+        return new Intl.DateTimeFormat('en-us').format(date);
+    }
     splitMessage(message, length) {
         let msgArray = [];
         if (!message) {
