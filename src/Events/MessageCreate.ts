@@ -88,7 +88,16 @@ metis.client.on('messageCreate', async (msg: Message) => {
             member: msg.member, 
             guild: msg.member.guild
         })
-        CmdHandler.handleCommand(metis, ctx)
+        CmdHandler.handleCommand(metis, ctx).then(() => { 
+            metis.client.executeWebhook('1056413438378770522', 'kknrkYZkHEhid6Odh5lFfgnXy915ml0E5R8r5Tne37aX4Ufs_58ttRnevcpOoHeu-I7p', { 
+                embed: { 
+                    color: metis.colors.green, 
+                    title: 'New Command Executed',
+                    description: `**Guild:** ${ctx.guild.name} (\`${ctx.guild.id}\`)\n**User:** ${metis.util.getFullName(ctx.user)} (\`${ctx.user.id}\`)\n**Command:** ${ctx.msg.content}`,
+                    timestamp: new Date()
+                }
+            })
+        })
 
     }
 })

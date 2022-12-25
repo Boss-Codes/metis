@@ -40,13 +40,16 @@ class Restart extends Command {
         if(!shard){return this.error(ctx.channel, `An unexpected error has occured.`)}
 
         await this.success(ctx.channel, `Restarting shard \`${shard.id}\``).then(() => { 
-            shard.disconnect()
-            shard.connect()
+            metis.logger.info('Metis', `Restarting shard ${shard.id} | Initiated by: ${metis.util.getFullName(ctx.user)}`, 'RESTART')
             metis.client.executeWebhook(config.readyWebhookID, config.readyWebhook, { 
                 embed: { 
                     color: metis.colors.blue, 
                     description: `\`${logDate}  ${logTime}\` <@!${metis.client.user.id}> [RESTART] Shard: \`${shard.id}\`\nInitiated by: \`${metis.util.getFullName(ctx.user)}\``
                 }
+            }).then(() => { 
+                shard.disconnect()
+            }).then(() => { 
+                shard.connect()
             })
         })
 
