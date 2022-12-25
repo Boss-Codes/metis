@@ -22,14 +22,14 @@ class Status extends Command_1.Command {
         const data = {
             embed: {
                 title: 'Metis Connection Status',
-                description: `Connected Shards: ${onlineShards}/${metis.client.shards.size}\nSession Count: ${gateway.session_start_limit.remaining}/${gateway.session_start_limit.total}`,
+                description: `**Connected Shards:** \`${onlineShards}/${metis.client.shards.size}\`\n**Session Count:** \`${gateway.session_start_limit.remaining}/${gateway.session_start_limit.total}\``,
                 color: metis.colors.default,
                 fields: []
             }
         };
         for (let i = 0; i < metis.client.shards.size; i++) {
             let shard = metis.client.shards.get(i);
-            data.embed.fields.push({ name: `${shard.id}`, value: `Status: ${shard.status}\nLatency: ${shard.latency}ms` });
+            data.embed.fields.push({ name: `Shard: ${shard.id}`, value: `Status: \`${shard.status}\`\nLatency: \`${shard.latency}ms\`` });
         }
         ctx.channel.createMessage(data).catch((error) => { });
     }
