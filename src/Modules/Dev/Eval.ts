@@ -1,6 +1,7 @@
 import {Command} from "../../Core/Structures/Command"; 
 import {ICommandContext, MetisInterface, CommandPermissions} from "../../types";
 import {inspect} from "util"; 
+import { timeStamp } from "console";
 
 class Eval extends Command { 
     constructor(){ 
@@ -20,6 +21,7 @@ class Eval extends Command {
     }
 
     async execute(metis: MetisInterface, ctx: ICommandContext) { 
+        try { 
         let msgArray: Array<string> = []
         const code = ctx.args.join(" "); 
         let evaled = await eval(code);
@@ -36,18 +38,19 @@ class Eval extends Command {
                     color: metis.colors.blue,
                     timestamp: new Date(),
            }
-            }).catch((err) => { 
-                ctx.channel.createMessage({
-                    embed: { 
-                        author: { name: 'Error', icon_url: ctx.user.avatarURL },
-                        description: metis.util.formatCode(err.toString()),
-                        color: metis.colors.red,
-                        timestamp: new Date(),
-                    }
-                })
             })
         }
         
+     } catch (err) { 
+        ctx.channel.createMessage({ 
+            embed: { 
+                color: metis.colors.red, 
+                description: metis.util.formatCode(err), 
+                author: { name: 'Error', icon_url: ctx.user.avatarURL },
+                timestamp: new Date
+            }
+        })
      }
+    }
 }
 module.exports.cmd = Eval
