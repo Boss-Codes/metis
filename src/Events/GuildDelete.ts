@@ -21,7 +21,8 @@ metis.client.on('guildDelete', async (guild: Guild) => {
             embeds: [{
                 author: { name: 'Removed', icon_url: metis.client.user.avatarURL }, 
                 color: metis.colors.red, 
-                description: `**ID:** \`${guild.id}\`\n**Name:** \`${guild.name}\`\n**Members:** \`${guild.members.size}\`\n**Owner:** \`${metis.util.getFullName(await metis.client.getRESTUser(guild.ownerID))}\``, 
+                description: `**ID:** \`${guild.id}\`\n**Name:** \`${guild.name}\`\n**Members:** \`${guild.members.size}\`\n**Owner:** \`${metis.util.getFullName(await metis.client.getRESTUser(guild.ownerID))}\`
+                n**Metis Joined:** ${metis.util.formatDate(guild.joinedAt)} at ${new Date(guild.joinedAt).toLocaleTimeString('en-us', {timeZone: 'America/New_York'})}`, 
                 timestamp: new Date, 
                 footer: { text: `Total Guilds: ${metis.client.guilds.size}`}
             }]
