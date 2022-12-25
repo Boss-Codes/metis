@@ -54,7 +54,7 @@ class BotInfo extends Command {
                     type: 2, 
                     style: 5, 
                     label: 'Github Repository', 
-                    url: 'https://github.com/Boss-Codes/metis-ts'
+                    url: 'https://github.com/boss207/metis'
                 }
             ],
             }]
