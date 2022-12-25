@@ -38,7 +38,7 @@ class Eval extends Command_1.Command {
                 ctx.channel.createMessage({
                     embed: {
                         author: { name: 'Error', icon_url: ctx.user.avatarURL },
-                        description: metis.util.formatCode(console_1.error.toString()),
+                        description: metis.util.formatCode(err.toString()),
                         color: metis.colors.red,
                         timestamp: new Date(),
                     }
