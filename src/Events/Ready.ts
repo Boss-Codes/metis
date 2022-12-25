@@ -5,7 +5,7 @@ let logTime = new Date().toLocaleTimeString('en-us', {timeZone: 'America/New_Yor
 let logDate = new Date().toLocaleDateString(); 
 
 metis.client.on('ready', async () => { 
-    metis.client.editStatus('online', {name: `!help | ${metis.client.guilds.size} guilds`, type: 0 })
+    metis.client.editStatus('online', {name: `!help | ${metis.client.guilds.size} guilds | ${metis.client.users.size} users`, type: 0 })
     metis.client.createCommand({
         name: 'ping', 
         description: 'Pings the bot.', 

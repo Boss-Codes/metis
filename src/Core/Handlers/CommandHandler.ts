@@ -26,7 +26,7 @@ export class CommandHandler {
         if(requiredGuilds.length && !requiredGuilds.includes(this.guild.id)){return}
         if(ctx.command.permLevel === CommandPermissions["user"]){return this.runCommand(metis, ctx)}
         if(ctx.command.permLevel === CommandPermissions["serverModerator"] && !(this.member.permissions.has('manageGuild') || 
-        this.member.roles.some((role: string) => ctx.guildDatabase.modRoles.includes(role)))){return}
+        this.member.roles.some((role: string) => ctx.guildDatabase.modRole.includes(role)))){return}
         if(ctx.command.permLevel === CommandPermissions["serverManager"] && !this.member.permissions.has('manageGuild')){return}
         if(ctx.command.permLevel === CommandPermissions["supportStaff"] && !metis.staff.includes(this.member.id)){return}
         if(ctx.command.permLevel === CommandPermissions["developer"] && !metis.developer.includes(this.member.id)){return}

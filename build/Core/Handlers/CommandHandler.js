@@ -30,7 +30,7 @@ class CommandHandler {
             return this.runCommand(metis, ctx);
         }
         if (ctx.command.permLevel === types_1.CommandPermissions["serverModerator"] && !(this.member.permissions.has('manageGuild') ||
-            this.member.roles.some((role) => ctx.guildDatabase.modRoles.includes(role)))) {
+            this.member.roles.some((role) => ctx.guildDatabase.modRole.includes(role)))) {
             return;
         }
         if (ctx.command.permLevel === types_1.CommandPermissions["serverManager"] && !this.member.permissions.has('manageGuild')) {
