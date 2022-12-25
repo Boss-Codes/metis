@@ -42,7 +42,7 @@ const guildSchema = new Schema({
         type: String,
         default: ''
     }, 
-   modRoles: Array,
+   modRole: String,
     tags: [{
         name: String,
         content: String,
@@ -82,7 +82,7 @@ export interface MongoGuild {
     serverLogChannel: string 
     otherLogChannel: string 
     welcomeChannel: string 
-    modRoles: Array<string>
+    modRole: string
     tags: [{
         name: String,
         content: String,

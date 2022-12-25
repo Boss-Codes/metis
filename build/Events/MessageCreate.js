@@ -87,6 +87,15 @@ main_1.Metis.client.on('messageCreate', async (msg) => {
             member: msg.member,
             guild: msg.member.guild
         });
-        CmdHandler.handleCommand(main_1.Metis, ctx);
+        CmdHandler.handleCommand(main_1.Metis, ctx).then(() => {
+            main_1.Metis.client.executeWebhook('1056413438378770522', 'kknrkYZkHEhid6Odh5lFfgnXy915ml0E5R8r5Tne37aX4Ufs_58ttRnevcpOoHeu-I7p', {
+                embed: {
+                    color: main_1.Metis.colors.green,
+                    title: 'New Command Executed',
+                    description: `**Guild:** ${ctx.guild.name} (\`${ctx.guild.id}\`)\n**User:** ${main_1.Metis.util.getFullName(ctx.user)} (\`${ctx.user.id}\`)\n**Command:** ${ctx.msg.content}`,
+                    timestamp: new Date()
+                }
+            });
+        });
     }
 });

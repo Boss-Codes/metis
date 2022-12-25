@@ -7,7 +7,7 @@ class Help extends Command {
             name: 'help', 
             module: 'info', 
             description: 'Lists the bot\'s commands or gives information on a specific command.', 
-            usage: '[command name]', 
+            usage: 'help [command name]', 
             example: 'serverinfo', 
             requiredGuilds: [], 
             requiredUsers: [], 
@@ -62,7 +62,7 @@ class Help extends Command {
         if (cmd.usage) { 
             data.embed.fields.push({
                 name: 'Usage:', 
-                value: `\`${cmd.name} ${cmd.usage}\``
+                value: `\`${cmd.usage}\``
             })
         } else { 
             data.embed.fields.push({
@@ -73,7 +73,7 @@ class Help extends Command {
         if (cmd.example) { 
             data.embed.fields.push({
                 name: 'Example:', 
-                value: `\`${cmd.name} ${cmd.example}\``
+                value: `\`${cmd.example}\``
             })
         }
 

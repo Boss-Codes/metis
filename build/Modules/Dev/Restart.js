@@ -10,8 +10,8 @@ class Restart extends Command_1.Command {
             name: 'restart',
             module: 'dev',
             description: 'Restarts the bot or a specified shard.',
-            usage: '[shard]',
-            example: '0',
+            usage: 'restart [shard]',
+            example: 'restart\nrestart 0',
             permLevel: types_1.CommandPermissions['developer'],
             requiredGuilds: [],
             requiredUsers: [],
@@ -39,13 +39,16 @@ class Restart extends Command_1.Command {
             return this.error(ctx.channel, `An unexpected error has occured.`);
         }
         await this.success(ctx.channel, `Restarting shard \`${shard.id}\``).then(() => {
-            shard.disconnect();
-            shard.connect();
+            metis.logger.info('Metis', `Restarting shard ${shard.id} | Initiated by: ${metis.util.getFullName(ctx.user)}`, 'RESTART');
             metis.client.executeWebhook(config.readyWebhookID, config.readyWebhook, {
                 embed: {
                     color: metis.colors.blue,
                     description: `\`${logDate}  ${logTime}\` <@!${metis.client.user.id}> [RESTART] Shard: \`${shard.id}\`\nInitiated by: \`${metis.util.getFullName(ctx.user)}\``
                 }
+            }).then(() => {
+                shard.disconnect();
+            }).then(() => {
+                shard.connect();
             });
         });
     }

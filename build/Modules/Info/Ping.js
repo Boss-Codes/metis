@@ -18,17 +18,20 @@ class Ping extends Command_1.Command {
         });
     }
     async execute(metis, ctx) {
-        const originalTime = Date.now();
         return ctx.channel.createMessage({
             embed: {
-                description: `${metis.emotes.info} Ping?`,
-                color: metis.colors.blue
+                color: metis.colors.blue,
+                fields: [
+                    { name: 'Message Round Trip', value: `<a:metisGear:1046881466015039589>` },
+                ]
             }
         }).then(message => {
             return message.edit({
                 embed: {
-                    description: `${metis.emotes.info} Pong! \`${Date.now() - originalTime}ms\``,
-                    color: metis.colors.blue
+                    color: metis.colors.blue,
+                    fields: [
+                        { name: 'Message Round Trip', value: `\`${message.timestamp - ctx.msg.timestamp}ms\`` },
+                    ]
                 }
             });
         }).catch(() => undefined);

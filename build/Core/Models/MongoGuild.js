@@ -42,7 +42,7 @@ const guildSchema = new mongoose_1.Schema({
         type: String,
         default: ''
     },
-    modRoles: Array,
+    modRole: String,
     tags: [{
             name: String,
             content: String,
