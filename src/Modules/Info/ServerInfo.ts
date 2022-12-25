@@ -81,12 +81,13 @@ class ServerInfo extends Command {
                     { name: '2FA Level', value: mfa, inline: true }, 
                     { name: 'Content Filter', value: expl, inline: true }, 
                     { name: 'Large?', value: large, inline: true }
-                ]
+                ], 
+                image: { url: '' }
             }
         }
 
         if (guild.description) {data.embed.description = guild.description}
-        if (guild.banner) {data.embed.thumbnail.url = guild.bannerURL}
+        if (guild.banner) {data.embed.image.url = guild.bannerURL}
 
         if (roles.length > 1020) { 
             data.embed.fields.push({ name: `Roles [${guild.roles.size - 1}]`, value: 'This server has too many roles to list.', inline: false })
