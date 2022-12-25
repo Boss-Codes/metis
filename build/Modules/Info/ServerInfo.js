@@ -99,7 +99,8 @@ class ServerInfo extends Command_1.Command {
                     { name: 'Content Filter', value: expl, inline: true },
                     { name: 'Large?', value: large, inline: true }
                 ],
-                image: { url: '' }
+                image: { url: '' },
+                timestamp: new Date
             }
         };
         if (guild.description) {
