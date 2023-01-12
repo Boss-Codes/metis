@@ -23,7 +23,7 @@ class Ping extends Command_1.Command {
                 color: metis.colors.blue,
                 fields: [
                     { name: 'Message Round Trip', value: `<a:metisGear:1046881466015039589>` },
-                ]
+                ],
             }
         }).then(message => {
             return message.edit({

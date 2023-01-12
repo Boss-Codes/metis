@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const main_1 = require("../main");
 const config = require('../../config.json');
-let logTime = new Date().toLocaleTimeString('en-us', { timeZone: 'America/New_York' });
-let logDate = new Date().toLocaleDateString();
 main_1.Metis.client.on('shardDisconnect', async (err, id) => {
+    let logTime = new Date().toLocaleTimeString('en-us', { timeZone: 'America/New_York' });
+    let logDate = new Date().toLocaleDateString();
     if (err) {
         main_1.Metis.client.executeWebhook(config.readyWebhookID, config.readyWebhook, {
             embeds: [{
